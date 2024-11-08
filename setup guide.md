@@ -106,7 +106,7 @@ We will now deploy the function code to OCI using the OCI Functions platform. Th
      fn -v deploy --app fun-app
      ```
 This will build the function’s Docker image, push it to the repository, and deploy it to OCI Functions.
-  
+
 ## Step 7: Subscribe the Function to a Topic
 
 To trigger the function upon receiving events, we must subscribe the function to a notification topic.
@@ -124,8 +124,10 @@ To trigger the function upon receiving events, we must subscribe the function to
    - **Compartment**: Select the compartment where the function is located.
    - **Application**: Choose the application created in **Step 5**.
    - **Function**: Select the function deployed in **Step 6**.
-6. Click **Create** to finalize the subscription.
-   
+6. Click **Create** to finalize the subscription.<br/>
+
+<img width="800" alt="subscription" src="https://github.com/user-attachments/assets/9fe8be3c-0800-4a0b-8eb1-e1aa5980b92e">
+
 ## Step 8: Create an Instance and the Notification Event Rule
 
 To validate the function, we’ll create a compute instance and associate it with the event notification rule.
@@ -146,6 +148,7 @@ To validate the function, we’ll create a compute instance and associate it wit
 5. Select a **QuickStart template**, such as **Instance Status Change to Stopped**, and associate it with the topic created earlier in Step 7.
 
 6. Click **Create Notification**
+<img width="900" alt="notification" src="https://github.com/user-attachments/assets/54080ff9-03a7-4c25-9e2f-be4c917cc70e">
 
 ## Step 9: Validate Notification Event Rule
 
@@ -157,9 +160,10 @@ Now we’ll validate that the event rule triggers the function upon stopping the
 
 3. Once the instance is stopped, you should receive an email through the subscribed notification topic, and the function should be triggered.
 
-4. Confirm that you have received the email with the notification details as shown in the following image:
+4. Confirm that you have received the email with the notification details.
 
 5. Check the Microsoft Teams channel for the alert.
+<img width="900" alt="MS Teams" src="https://github.com/user-attachments/assets/b23781d5-1667-49ad-b207-ce56c1995e1e">
 
 The custom function should post a notification with the relevant message to the Teams Channel, verifying the entire flow.
 
