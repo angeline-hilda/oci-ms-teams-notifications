@@ -21,7 +21,7 @@ The following are the steps to get notified on MS Team when an instance is stopp
 
 ## Documentation:
 
-Step by stpe guide to integrate OCI Notifications service with Microsoft Teams can be found [here]()
+Step by step guide to integrate OCI Notifications service with Microsoft Teams can be found [here]()
 
 
 
