@@ -117,7 +117,7 @@ To trigger the function upon receiving events, we must subscribe the function to
 
 3. After the topic is created, find and select it from the list of topics.
 
-4. On the topic’s details page, under **Resources**, click ***Subscriptions -> Create Subscription**.
+4. On the topic’s details page, under **Resources**, click **Subscriptions -> Create Subscription**.
 
 5. In the **Create Subscription** window, set the following:
    - **Protocol**: Choose **Functions**.
