@@ -13,18 +13,16 @@ In this article, I'm going to show the integration between OCI and Microsoft Tea
 - The restructured message is then published to Microsoft Teams via a webhook, ensuring that the notification is displayed correctly in the Teams channel.
 
 ## Pre-requisites:
-1. **Create a Workflow in Microsoft Teams**: This allows posting to a channel or chat when a webhook request is received.
-2. **Custom Functions Code**: Available on [GitHub](https://github.com/your-repo).
+1. Create a Workflow in Microsoft Teams. This allows posting to a channel or chat when a webhook request is received. You can follow the steps in the [official documentation](https://support.microsoft.com/en-us/office/create-incoming-webhooks-with-workflows-for-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498#:~:text=An%20Incoming%20webhook%20lets%20external,a%20webhook%20request%20is%20received.&text=next%20to%20the%20channel%20or,for%2C%20and%20then%20select%20Workflows) to create an incoming webhook.
+
+2. Custom Functions Code: Available [here](https://github.com/angeline-hilda/OCI-Notifications/tree/9007f51a4a3a94e9b7b71e33064d3f3cdeaa7308/sample%20code).
    
 The following are the steps to get notified on MS Team when an instance is stopped.<br/>
 
-## Step-by-Step Guide for Integrating OCI Notifications with Microsoft Teams
+## Documentation:
 
-### Step 1: Create a Dynamic Group for Functions
-To enable a function to access another Oracle Cloud Infrastructure (OCI) resource, include the function in a dynamic group and then create a policy to grant the dynamic group access to that resource.
+Step by stpe guide to integrate OCI Notifications service with Microsoft Teams can be found [here]()
 
-Add the following dynamic group rule:
 
-```plaintext
-ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1', instance.compartment.id = 'ocid1.compartment.XXXXX'}
+
 
