@@ -62,7 +62,7 @@ Here are some common issues and tips to help resolve them:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/angeline-hilda/OCI-Notifications/tree/main?tab=MIT-1-ov-file) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/angeline-hilda/oci-ms-teams-notifications/blob/main/LICENSE) file for details.
 
 ---
 
