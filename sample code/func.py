@@ -84,7 +84,7 @@ def parse_message(body):
 # Error Handling: Logs the response status and any errors encountered during the POST request.
 
 def make_post(post_text):
-    url = ""
+    url = ""                #specify the webhook url here
     headers = {
         "Content-Type": "application/json"
     }
