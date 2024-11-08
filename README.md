@@ -12,21 +12,63 @@ In this article, I'm going to show the integration between OCI and Microsoft Tea
 - **OCI Functions** reformat the event data (JSON Payload) to the Adaptive Card format required by Microsoft Teams.
 - The restructured message is then published to Microsoft Teams via a webhook, ensuring that the notification is displayed correctly in the Teams channel.
 
-## Pre-requisites:
-1. Create a Workflow in Microsoft Teams. This allows posting to a channel or chat when a webhook request is received. You can follow the steps in the [official documentation](https://support.microsoft.com/en-us/office/create-incoming-webhooks-with-workflows-for-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498#:~:text=An%20Incoming%20webhook%20lets%20external,a%20webhook%20request%20is%20received.&text=next%20to%20the%20channel%20or,for%2C%20and%20then%20select%20Workflows) to create an incoming webhook.
+## Prerequisites
 
-2. Custom Functions Code: Available [sample code folder](https://github.com/angeline-hilda/OCI-Notifications/tree/9007f51a4a3a94e9b7b71e33064d3f3cdeaa7308/sample%20code).<br/>
-   - The folder consists of
-        the code of the fucntion [func.py](https://github.com/angeline-hilda/OCI-Notifications/blob/89c5cf981ec9e2db9d36e0e8da576032bd8a9b6c/sample%20code/func.py)
-        its dependencies [requirements.txt](https://github.com/angeline-hilda/OCI-Notifications/blob/89c5cf981ec9e2db9d36e0e8da576032bd8a9b6c/sample%20code/func.yaml)
-        the function metadata [func.yaml](https://github.com/angeline-hilda/OCI-Notifications/blob/89c5cf981ec9e2db9d36e0e8da576032bd8a9b6c/sample%20code/requirements.txt)
+### 1. Create a Workflow in Microsoft Teams
+
+To receive notifications from OCI in Microsoft Teams, set up a workflow in Microsoft Teams to handle incoming webhook requests and post to a channel or chat. Follow the steps in the [Microsoft Teams Incoming Webhook Documentation](https://docs.microsoft.com/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook) to create an incoming webhook.
+
+### 2. Custom Functions Code
+
+The function code is provided in the [sample code folder](https://github.com/angeline-hilda/OCI-Notifications/tree/9007f51a4a3a94e9b7b71e33064d3f3cdeaa7308/sample%20code) with the following files:
+
+- **`func.py`**: Main function file, which processes incoming OCI event data and formats it for Microsoft Teams.
+- **`requirements.txt`**: Lists the dependencies needed to run the function.
+- **`func.yaml`**: Metadata file containing configuration details for deploying the function in OCI.
+
+Ensure these files are available and accessible for deployment.
+
+## Setup
+
+The detailed, step-by-step setup guide can be found in the [setup.md](https://github.com/angeline-hilda/OCI-Notifications/blob/912b9de7b995c35d606780f3148e2e67334496a4/setup%20guide.md) file. It includes instructions to:
+
+1. Create a dynamic group and policy to grant necessary permissions.
+2. Create a repository and deploy the function in OCI.
+3. Set up OCI Notifications and subscribe to a topic.
+4. Test and validate the function by triggering OCI events.
+
+## Usage
+
+After deployment, any specified OCI events (e.g., instance stopped or Object Storage file upload) will trigger the notification function, which sends a message to the configured Microsoft Teams channel. You can update the function to customize the message format or to include additional event details.
+
+### Triggering an Event
+
+To test the integration, you can trigger an event by stopping or starting an instance, or by creating a file in Object Storage (if these events are configured as triggers). Verify that the notification appears in the designated Teams channel.
+
+## Troubleshooting
+
+Here are some common issues and tips to help resolve them:
+
+- **Webhook Delivery Issues**: Verify that the webhook URL in the function code matches the Microsoft Teams webhook URL.
+- **Permission Denied Errors**: Ensure that the IAM policies and dynamic group settings are correctly configured for the function.
+- **Function Deployment Errors**: Check the `func.yaml` file for accurate configuration, and verify that all required dependencies are listed in `requirements.txt`.
+
+## Resources
+
+- [Oracle Cloud Infrastructure Notification Service](https://docs.oracle.com/en-us/iaas/Content/Notification/Concepts/notificationoverview.htm)
+- [Oracle Cloud Infrastructure Events](https://docs.oracle.com/en-us/iaas/Content/Events/Concepts/eventsoverview.htm)
+- [Oracle Functions](https://docs.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm)
+- [Microsoft Connectors](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using?tabs=cURL%2Ctext1)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/angeline-hilda/OCI-Notifications/tree/main?tab=MIT-1-ov-file) file for details.
+
+---
+
+This setup enables seamless integration between OCI and Microsoft Teams, ensuring that critical OCI events are effectively communicated in real time to your team, improving visibility and operational efficiency.
+
    
-   
-
-## Documentation:
-
-Step by step guide to integrate OCI Notifications service with Microsoft Teams can be found [here](https://github.com/angeline-hilda/OCI-Notifications/blob/912b9de7b995c35d606780f3148e2e67334496a4/setup%20guide.md)
-
 
 
 
