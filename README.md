@@ -15,9 +15,13 @@ In this article, I'm going to show the integration between OCI and Microsoft Tea
 ## Pre-requisites:
 1. Create a Workflow in Microsoft Teams. This allows posting to a channel or chat when a webhook request is received. You can follow the steps in the [official documentation](https://support.microsoft.com/en-us/office/create-incoming-webhooks-with-workflows-for-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498#:~:text=An%20Incoming%20webhook%20lets%20external,a%20webhook%20request%20is%20received.&text=next%20to%20the%20channel%20or,for%2C%20and%20then%20select%20Workflows) to create an incoming webhook.
 
-2. Custom Functions Code: Available [here](https://github.com/angeline-hilda/OCI-Notifications/tree/9007f51a4a3a94e9b7b71e33064d3f3cdeaa7308/sample%20code).
+2. Custom Functions Code: Available [sample code folder](https://github.com/angeline-hilda/OCI-Notifications/tree/9007f51a4a3a94e9b7b71e33064d3f3cdeaa7308/sample%20code).<br/>
+   - The folder consists of
+        the code of the fucntion [func.py](https://github.com/angeline-hilda/OCI-Notifications/blob/89c5cf981ec9e2db9d36e0e8da576032bd8a9b6c/sample%20code/func.py)
+        its dependencies [requirements.txt](https://github.com/angeline-hilda/OCI-Notifications/blob/89c5cf981ec9e2db9d36e0e8da576032bd8a9b6c/sample%20code/func.yaml)
+        the function metadata [func.yaml](https://github.com/angeline-hilda/OCI-Notifications/blob/89c5cf981ec9e2db9d36e0e8da576032bd8a9b6c/sample%20code/requirements.txt)
    
-The following are the steps to get notified on MS Team when an instance is stopped.<br/>
+   
 
 ## Documentation:
 
