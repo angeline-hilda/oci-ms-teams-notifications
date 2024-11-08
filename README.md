@@ -3,7 +3,7 @@ Oracle Notification Service (ONS) is a robust cloud-native tool that allows you 
 Support of OCI Functions as Notification target allows to invoke cusotm function during Notification event and send updated notification details to communication channels that support API invocation. 
 In this article, I'm going to show the integration between OCI and Microsoft Teams, ensuring that critical OCI events are communicated effectively to your team.
 
-## Architecture##
+## Architecture
 
 ![ONS and MS Teams drawio_1](https://github.com/user-attachments/assets/e241e0d3-c255-4101-8d32-4e89a465d41b)
 
