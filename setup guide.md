@@ -92,7 +92,7 @@ An application in OCI serves as a container for deploying and managing functions
 
 We will now deploy the function code to OCI using the OCI Functions platform. This will leverage the code mentioned in the pre-requisite.
 
-1. Launch the **Cloud Shell** from the OCI consolr. 
+1. Launch the **Cloud Shell** from the OCI console. 
 2. Upload the function code 
 3. 'func.py' file contains the following key functions:
      - `parse_message`: Processes the incoming event data and foramts it for Microsoft Teams.
