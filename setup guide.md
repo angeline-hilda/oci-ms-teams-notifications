@@ -143,7 +143,7 @@ To trigger the function upon receiving events, we must subscribe the function to
 5. In the **Create Subscription** window, set the following:
    - **Protocol**: Choose **Functions**.
    - **Compartment**: Select the compartment where the function is located.
-   - **Application**: Choose the application created in **Step 5**.
+   - **Application**: Choose the application created in **Step 4**.
    - **Function**: Select the function deployed in **Step 6**.
 6. Click **Create** to finalize the subscription.<br/>
 <img width="800" alt="subscription creation" src="https://github.com/user-attachments/assets/93776f91-7197-438b-a268-9522cca5dcb0">
