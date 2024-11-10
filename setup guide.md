@@ -49,20 +49,7 @@ To enable the function to interact with necessary OCI services (like compute, ne
 
 <img width="800" alt="policy" src="https://github.com/user-attachments/assets/637e6680-145e-4549-b382-015c917b77ab">
 
-  ## Step 3: Create a Repository to Store the Custom OCI Function
-Oracle Container Registry (OCIR) is used to store container images securely. This step involves creating a repository to store the custom OCI function image.
-
-1. In the OCI console, Go to **Developer services -> Containers -> Container Registry -> Create Repository**.
-2. In the **Create Repository** dialog box:
-   - **Compartment**: Select the compartment where you want to store the repository.
-   - **Repository Name**: Enter a name for your repository.
-   - **Visibility**: Set the repository as **Private** to maintain security.
-3. Click **Create Repository**. Your repository should now be created successfully. 
-> **Note**: The repository must remain private for security reasons unless there's a specific need for public access.
-
-<img width="800" alt="repo" src="https://github.com/user-attachments/assets/e04f0e53-d088-48cc-992f-8a0ac24a0e30">
-
-## Step 4: Create a VCN with Subnet for the Function Application
+## Step 3: Create a VCN with Subnet for the Function Application
 
 A Virtual Cloud Network (VCN) allows you to manage networking resources within OCI. For this tutorial, we will create a VCN and subnet for hosting the function application.
 
@@ -83,7 +70,7 @@ A Virtual Cloud Network (VCN) allows you to manage networking resources within O
 6. Click **Create Subnet**, and your subnet should be created successfully.<br/>
 <img width="800" alt="VCN" src="https://github.com/user-attachments/assets/25cde544-be3a-4e58-896a-7127993d1799">
 
-## Step 5: Create an Application to Store the Functions
+## Step 4: Create an Application to Store the Functions
 An application in OCI serves as a container for deploying and managing functions. 
 
 1. In OCI Console, Go to **Developer Services -> Functions -> Applications -> Create Application**.
@@ -93,7 +80,20 @@ An application in OCI serves as a container for deploying and managing functions
 3. Click **Create**, and your function application should be created successfully.
 <img width="900" alt="app creation" src="https://github.com/user-attachments/assets/98311c29-614d-4a5c-8149-741711d70633">
 
-## Step 6: Deploy the Function
+  ## Step 5: Create a Repository to Store the Custom OCI Function
+Oracle Container Registry (OCIR) is used to store container images securely. This step involves creating a repository to store the custom OCI function image.
+
+1. In the OCI console, Go to **Developer services -> Containers -> Container Registry -> Create Repository**.
+2. In the **Create Repository** dialog box:
+   - **Compartment**: Select the compartment where you want to store the repository.
+   - **Repository Name**: Enter a name for your repository.
+   - **Visibility**: Set the repository as **Private** to maintain security.
+3. Click **Create Repository**. Your repository should now be created successfully. 
+> **Note**: The repository must remain private for security reasons unless there's a specific need for public access.
+
+<img width="800" alt="repo" src="https://github.com/user-attachments/assets/e04f0e53-d088-48cc-992f-8a0ac24a0e30">
+
+## Step 6: Configure and Deploy the Function
 
 We will now deploy the function code to OCI using the OCI Functions platform. This will leverage the code mentioned in the pre-requisite.
 
@@ -114,9 +114,9 @@ We will now deploy the function code to OCI using the OCI Functions platform. Th
      ```
    - Configure the OCI Container Registry path (created in Step 6) to store function images for deployment:
      ```bash
-     fn update context registry <region-key>.ocir.io/<tenancy-namespace>/<repo-name-prefix-from-step-3>
+     fn update context registry <region-key>.ocir.io/<tenancy-namespace>/<repo-name-prefix-from-step-5>
      ```
-     Replace <compartment_ocid> , <region-key>, <tenancy-namespace>, and <repo-name-prefix-from-step3> with your specific values.
+     Replace <compartment_ocid> , <region-key>, <tenancy-namespace>, and <repo-name-prefix-from-step-5> with your specific values.
 5. Use the following commands to deploy the function:
 
      ```bash
