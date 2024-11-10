@@ -116,7 +116,7 @@ To trigger the function upon receiving events, we must subscribe the function to
 
 1. In the OCI console, go to **Developer Services -> Application Integration -> Notifications**.
    
-2. Click **Create Topic**, enter an appropriate name for the topic, and click **Create***.
+2. Click **Create Topic**, enter an appropriate name for the topic, and click **Create**.
 
 3. After the topic is created, find and select it from the list of topics.
 
