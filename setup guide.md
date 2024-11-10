@@ -58,9 +58,10 @@ Oracle Container Registry (OCIR) is used to store container images securely. Thi
    - **Repository Name**: Enter a name for your repository.
    - **Visibility**: Set the repository as **Private** to maintain security.
 3. Click **Create Repository**. Your repository should now be created successfully. 
-
-
 > **Note**: The repository must remain private for security reasons unless there's a specific need for public access.
+
+<img width="800" alt="repo" src="https://github.com/user-attachments/assets/e04f0e53-d088-48cc-992f-8a0ac24a0e30">
+
 ## Step 4: Create a VCN with Subnet for the Function Application
 
 A Virtual Cloud Network (VCN) allows you to manage networking resources within OCI. For this tutorial, we will create a VCN and subnet for hosting the function application.
@@ -102,16 +103,29 @@ We will now deploy the function code to OCI using the OCI Functions platform. Th
 
 3. 'func.py' file contains the following key functions:
      - `parse_message`: Processes the incoming event data and foramts it for Microsoft Teams.
-     - `make_post`: Sends the notification as an Adaptive card to the Microsoft TeamsL.
+     - `make_post`: Sends the notification as an Adaptive card to the Microsoft Teams.
      - `handler`: The entry point for the function, responsible for handling the request, parsing the data, and invoking `parse_message`.
-
-4. Use the following commands to deploy the function:
+   
+4. Before deploying the function, let's setup fn CLI on Cloud Shell.
+   - Set the compartment ID to ensure the function deploys to the correct OCI compartment:
+     
+     ```bash
+     fn update context oracle.compartment-id <compartment_ocid>
+     ```
+   - Configure the OCI Container Registry path (created in Step 6) to store function images for deployment:
+     ```bash
+     fn update context registry <region-key>.ocir.io/<tenancy-namespace>/<repo-name-prefix-from-step-3>
+     ```
+     Replace <compartment_ocid> , <region-key>, <tenancy-namespace>, and <repo-name-prefix-from-step3> with your specific values.
+5. Use the following commands to deploy the function:
 
      ```bash
      fn -v deploy --app <app-name>
      fn -v deploy --app fun-app
      ```
 This will build the function’s Docker image, push it to the repository, and deploy it to OCI Functions.
+<img width="800" alt="func app" src="https://github.com/user-attachments/assets/1720943d-20f1-489a-bbdf-c9a1d201a98c">
+
 
 ## Step 7: Subscribe the Function to a Topic
 
@@ -133,7 +147,7 @@ To trigger the function upon receiving events, we must subscribe the function to
    - **Function**: Select the function deployed in **Step 6**.
 6. Click **Create** to finalize the subscription.<br/>
 <img width="800" alt="subscription creation" src="https://github.com/user-attachments/assets/93776f91-7197-438b-a268-9522cca5dcb0">
-
+</br>
 <img width="800" alt="Topic" src="https://github.com/user-attachments/assets/00685d92-6b66-423f-9eca-9ab575536feb">
 
 
@@ -167,11 +181,9 @@ Now we’ll validate that the event rule triggers the function upon stopping the
    ```bash
    oci compute instance action --instance-id <instance_ocid> --action STOP
 
-3. Once the instance is stopped, you should receive an email through the subscribed notification topic, and the function should be triggered.
+2. Once the instance is stopped, the function will be triggered.
 
-4. Confirm that you have received the email with the notification details.
-
-5. Check the Microsoft Teams channel for the alert.
+3. Check the Microsoft Teams channel for the alert.
 <img width="900" alt="MS Teams" src="https://github.com/user-attachments/assets/b23781d5-1667-49ad-b207-ce56c1995e1e">
 
 The custom function should post a notification with the relevant message to the Teams Channel, verifying the entire flow.
