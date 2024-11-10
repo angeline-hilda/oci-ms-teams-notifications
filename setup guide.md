@@ -11,7 +11,9 @@ Dynamic groups allow you to group OCI compute instances as “principal” actor
    
    ```plaintext
    ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1', instance.compartment.id = 'ocid1.compartment.XXXXX'}
-This rule grants access to all functions within the specified compartment.
+
+This rule grants access to all functions within the specified compartment. <br/>
+<img width="800" alt="dynamic grp" src="https://github.com/user-attachments/assets/8f553fc0-f250-4854-a7e0-930727709f99">
 
 ## Step 2: Create Dynamic Group OCI IAM Policy
 
@@ -26,8 +28,6 @@ To enable the function to interact with necessary OCI services (like compute, ne
    ```plaintext
    # Core permissions for function access to instances and network resources
    Allow dynamic-group <dynamic_group_name>/<domain> to read instances in compartment <compartment_name_path>
-   Allow dynamic-group <dynamic_group_name>/<domain> to read vnics in compartment <compartment_name_path>
-   Allow dynamic-group <dynamic_group_name>/<domain> to read vnic-attachments in compartment <compartment_name_path>
    Allow dynamic-group <dynamic_group_name>/<domain> to use virtual-network-family in compartment <compartment_name_path>
 
    # Permissions for accessing object storage and logging resources
@@ -46,6 +46,8 @@ To enable the function to interact with necessary OCI services (like compute, ne
 
    # Permission to manage function resources in the compartment
    Allow dynamic-group <dynamic_group_name>/<domain> to manage functions-family in compartment <compartment_name_path>
+
+<img width="800" alt="policy" src="https://github.com/user-attachments/assets/637e6680-145e-4549-b382-015c917b77ab">
 
   ## Step 3: Create a Repository to Store the Custom OCI Function
 Oracle Container Registry (OCIR) is used to store container images securely. This step involves creating a repository to store the custom OCI function image.
@@ -77,8 +79,9 @@ A Virtual Cloud Network (VCN) allows you to manage networking resources within O
    - Enter a **Name** and **CIDR Block** for your subnet (e.g., `10.0.1.0/24`).
    - **Availability Domain**: Choose an availability domain or leave it as **Regional** if you want the subnet to span across multiple availability domains.
    - **Subnet Access**: Choose **Public** or **Private** based on your needs.
-6. Click **Create Subnet**, and your subnet should be created successfully.
-   
+6. Click **Create Subnet**, and your subnet should be created successfully.<br/>
+<img width="800" alt="VCN" src="https://github.com/user-attachments/assets/25cde544-be3a-4e58-896a-7127993d1799">
+
 ## Step 5: Create an Application to Store the Functions
 An application in OCI serves as a container for deploying and managing functions. 
 
