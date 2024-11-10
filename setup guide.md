@@ -90,13 +90,16 @@ An application in OCI serves as a container for deploying and managing functions
    - **Name**: Enter a name for the application, such as `fun-app`.
    - **VCN**: Select the VCN and the Public subnet created earlier. 
 3. Click **Create**, and your function application should be created successfully.
+<img width="900" alt="app creation" src="https://github.com/user-attachments/assets/98311c29-614d-4a5c-8149-741711d70633">
 
 ## Step 6: Deploy the Function
 
 We will now deploy the function code to OCI using the OCI Functions platform. This will leverage the code mentioned in the pre-requisite.
 
 1. Launch the **Cloud Shell** from the OCI console. 
-2. Upload the function code 
+2. Upload the function code
+   <img width="800" alt="file upload" src="https://github.com/user-attachments/assets/8cf27dfc-cf19-4146-930d-769c832dc9d4">
+
 3. 'func.py' file contains the following key functions:
      - `parse_message`: Processes the incoming event data and foramts it for Microsoft Teams.
      - `make_post`: Sends the notification as an Adaptive card to the Microsoft TeamsL.
@@ -115,7 +118,8 @@ This will build the function’s Docker image, push it to the repository, and de
 To trigger the function upon receiving events, we must subscribe the function to a notification topic.
 
 1. In the OCI console, go to **Developer Services -> Application Integration -> Notifications**.
-   
+   <img width="800" alt="notification navigation" src="https://github.com/user-attachments/assets/dee0487b-8f16-4d14-9576-21fc9e9a5051">
+
 2. Click **Create Topic**, enter an appropriate name for the topic, and click **Create**.
 
 3. After the topic is created, find and select it from the list of topics.
@@ -128,8 +132,10 @@ To trigger the function upon receiving events, we must subscribe the function to
    - **Application**: Choose the application created in **Step 5**.
    - **Function**: Select the function deployed in **Step 6**.
 6. Click **Create** to finalize the subscription.<br/>
+<img width="800" alt="subscription creation" src="https://github.com/user-attachments/assets/93776f91-7197-438b-a268-9522cca5dcb0">
 
-<img width="800" alt="subscription" src="https://github.com/user-attachments/assets/9fe8be3c-0800-4a0b-8eb1-e1aa5980b92e">
+<img width="800" alt="Topic" src="https://github.com/user-attachments/assets/00685d92-6b66-423f-9eca-9ab575536feb">
+
 
 ## Step 8: Create an Instance and the Notification Event Rule
 
