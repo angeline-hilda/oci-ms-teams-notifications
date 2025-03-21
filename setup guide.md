@@ -27,27 +27,26 @@ To enable the function to interact with necessary OCI services (like compute, ne
 
    ```plaintext
    # Core permissions for function access to instances and network resources
-   Allow dynamic-group <dynamic_group_name>/<domain> to read instances in compartment <compartment_name_path>
-   Allow dynamic-group <dynamic_group_name>/<domain> to use virtual-network-family in compartment <compartment_name_path>
+   Allow dynamic-group <domain>/<dynamic_group_name> to read instances in compartment <compartment_name_path>
+   Allow dynamic-group <domain>/<dynamic_group_name> to use virtual-network-family in compartment <compartment_name_path>
 
    # Permissions for accessing object storage and logging resources
-   Allow dynamic-group <dynamic_group_name>/<domain> to read objectstorage-namespaces in compartment <compartment_name_path>
-   Allow dynamic-group <dynamic_group_name>/<domain> to manage logging-family in compartment <compartment_name_path>
+   Allow dynamic-group <domain>/<dynamic_group_name> to read objectstorage-namespaces in compartment <compartment_name_path>
+   Allow dynamic-group <domain>/<dynamic_group_name> to manage logging-family in compartment <compartment_name_path>
 
    # Permissions for using APM domains and accessing repositories for function container images
    Allow service faas to use apm-domains in compartment <compartment_name_path>
    Allow service faas to read repos in compartment <compartment_name_path> where request.operation='ListContainerImageSignatures'
 
    # Permissions for using keys and vaults for secure data handling
-   Allow dynamic-group <dynamic_group_name>/<domain> to read vaults in compartment <compartment_name_path>
-   Allow dynamic-group <dynamic_group_name>/<domain> to use keys in compartment <compartment_name_path>
+   Allow dynamic-group <domain>/<dynamic_group_name> to read vaults in compartment <compartment_name_path>
+   Allow dynamic-group <domain>/<dynamic_group_name> to use keys in compartment <compartment_name_path>
    Allow service faas to {KEY_READ} in compartment <compartment_name_path> where request.operation='GetKeyVersion'
    Allow service faas to {KEY_VERIFY} in compartment <compartment_name_path> where request.operation='Verify'
 
    # Permission to manage function resources in the compartment
-   Allow dynamic-group <dynamic_group_name>/<domain> to manage functions-family in compartment <compartment_name_path>
+   Allow dynamic-group <domain>/<dynamic_group_name> to manage functions-family in compartment <compartment_name_path>
 
-<img width="800" alt="policy" src="https://github.com/user-attachments/assets/637e6680-145e-4549-b382-015c917b77ab">
 
 ## Step 3: Create a VCN with Subnet for the Function Application
 
